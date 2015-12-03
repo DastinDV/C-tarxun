@@ -1,0 +1,76 @@
+//Задача 2
+#include<stdio.h>
+#include<locale>
+void main()
+{
+	setlocale(LC_ALL, "rus");
+	int a[999];
+	int b[999];
+	int n; int i; int s=1;
+	int m; int max; int k=0;
+	while (s != 0)
+	{
+
+	printf("Введите количество элементов первого массива: \n");
+	scanf_s("%d", &n);
+	printf("Введите количество элементов второго массива: \n");
+	scanf_s("%d", &m);
+	printf("///ВВЕДИТЕ ПЕРВЫЙ МАССИВ [A]///\n");
+
+	for (i = 0; i < n; i++)
+	{
+		printf("Элемент: %d\n", i + 1);
+		scanf_s("%d", &a[i]);
+	}
+	system("cls");
+	printf("///ВВЕДИТЕ ВТОРОЙ МАССИВ [B]///\n");
+
+	for (i = 0; i < m; i++)
+	{
+		printf("Элемент: %d\n", i + 1);
+		scanf_s("%d", &b[i]);
+	}
+	max = a[0];
+	for (i = 0; i < n; i++)
+	{
+		if (max < a[i])
+		{
+			max = a[i];
+		}
+	}
+	for (i = 0; i < m; i++)
+	{
+		if (b[i] == max)
+		{
+			k++;
+		}
+	}
+	if (k == 0)
+	{
+		printf("В Массиве В нет максимального элемента в массиве А\n");
+	}
+	else
+	{
+		printf("В массиве B есть максимальный элемент из массива A\n");
+	}
+	printf("Введите 1 для повтора ввода массивов или введите 0 для выхода из программы!\n");
+	scanf_s("%d", &s);
+	max = 0; k = 0;
+	if (s == 0)
+	{
+		break;
+	}
+	else if (s == 1)
+	{
+		max = 0; k = 0;
+	}
+	else
+	{
+		while (s<0 || s>1)
+		{
+			printf("Введите только 0 или 1: ");
+			scanf_s("%d", &s);
+		}
+	}
+	}
+}	
