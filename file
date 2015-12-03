@@ -1,0 +1,72 @@
+// 1 задача
+#include<stdio.h>
+#include<locale>
+void main()
+{
+	int array[999];
+	int i = 0;
+	int n; int k = 0;
+	int n1 = 0; int s = 1;
+	int p = 0; int sum = 0;
+	setlocale(LC_ALL, "rus");
+	while (s != 0)
+	{
+
+		printf("Введите количество элементов массива: \n");
+		scanf_s("%d", &n);
+		for (i = 0; i < n; i++)
+		{
+			printf("Элемент: %d\n", i + 1);
+			scanf_s("%d", &array[i]);
+		}
+		for (i = 0; i < n; i++)
+		{
+			if (array[i]>0)
+			{
+				k++;
+			}
+			if (array[i] == 0)
+			{
+				n1++;
+				p = i + 1;
+			}
+		}
+		if (p == 0)
+		{
+			printf("Нет нулевых элементов!\n");
+		}
+		else if (p == n)
+				{
+					printf("Нулевой элемент последний!\n");
+
+				}
+		else
+			{
+				for (i = p; i < n; i++)
+					{
+						sum = sum + array[i];
+					}
+						printf("Сумма элементов после последнего нуля равна: %d\n", sum);
+			}
+		printf("Количество положительных элементов равно: %d\n", k);
+		printf("Введите 1 для повтора ввода массива или введите 0 для выхода из программы!\n");
+		scanf_s("%d", &s);
+		if (s == 1)
+		{
+			sum = 0; k = 0;
+		}
+		else if (s == 0)
+		{
+			break;
+		}
+		else
+		{
+			while (s<0 || s>1)
+			{
+				printf("Введите только 0 или 1: ");
+				scanf_s("%d", &s);
+			}
+
+		}
+	}
+}
